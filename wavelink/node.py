@@ -579,7 +579,7 @@ class Node:
                 raise LavalinkException(data=exc_data)
 
     async def _fetch_tracks(self, query: str) -> LoadedResponse:
-        uri: str = f"{self.uri}/v4/loadtracks?identifier={query}"
+        uri: str = f"{self.uri}/v4/loadsearch?query={query}"
 
         async with self._session.get(url=uri, headers=self.headers) as resp:
             if resp.status == 200:
